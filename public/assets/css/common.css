@@ -1,0 +1,221 @@
+@media(min-width:768px){
+    .col-fix{
+        width: 180px;
+        position: fixed;
+   }
+}
+@media(min-width:992px){
+    .col-fix{
+        width: 230px;
+        position: fixed;
+    }
+}
+@media(min-width:1200px){
+    .col-fix{
+        width: 280px;
+        position: fixed;
+    }
+}
+html, body{
+    height: 100%;
+}
+a{
+    cursor: pointer;  
+}
+a:hover{
+    text-decoration: none !important;
+}
+input:focus{
+    outline: 0 !important;
+}
+button:focus{
+    outline: 0 !important;
+}
+#logo{
+    float: left;
+    margin: 5px 0;
+}
+.text-right{
+    float: right;
+    margin-top: 16px;
+}
+.login-a{
+    color:white;
+    font-weight: 600;
+}
+.login-a:hover{
+    color:#884b45;
+}
+.navbar{
+    position: fixed; 
+    top:0; 
+    left:0;
+    width:100%;
+    margin-top: 0;
+}
+.container-fluid{
+    border: 0;
+    background-color: #e47e73;
+    padding: 3px 0;
+}
+.today{
+    height: 270px;
+    width: 100%;
+}
+#nav{
+    z-index: 1;
+}
+.nav{
+    padding-top: 5%;
+}
+.nav>li{
+    width: 100%;
+    margin-right: 1.5%;
+}
+.nav>li>a{
+    font-size: 15px;
+    color: #585858;
+    font-weight: 600;
+    padding: 10px 7%;
+}
+.nav>li>a:hover{
+    background-color: white;
+    color:#e47e73;
+    text-decoration: none !important;
+}
+.nav>li>a:focus{
+    background-color: white;
+    color:#e47e73;
+    text-decoration: none !important;
+}
+.nav>.active>a{
+    color:#e47e73;
+    text-decoration: none !important;
+}
+.nav-find{
+    display: inline-block;
+    margin-top:6px;
+    width: 50%;
+}
+.best{
+    padding: 2% 7%;
+}
+.best-h3{
+    font-weight: 700;
+    color: #e47e73;
+}
+.best-hr{
+    margin-top: 4%;
+    margin-bottom: 7%;
+    border: 1px solid #e47e73;
+}
+.best-number{
+    color: #e47e73;
+    font-size: 17px;
+    font-weight: 600;
+    margin-right: 1%;
+}
+.best-{
+    color: #848484;
+    font-size: 13px
+}
+#find_form{
+    border-radius: 5px;
+    background-color: white;
+}
+.find-input{
+    border: none;
+    width: 80%;
+    height: 40px;
+    outline: none;
+}
+#glass{
+    float: right;
+    width: 26px;
+    margin: 2%;
+}
+.modal-login-title{
+    margin-left: 15px;
+}
+.input-default{
+    height: 30px;
+    width: 180%;
+    border: 1px solid #ccc;
+    margin: 3% 0;
+}
+.loing-table{
+    margin-left: 5%;
+}
+.table-a{
+    font-size: 80%;
+}
+.con-sec{
+    margin-top: 90px;
+    margin-bottom: 3%;
+}
+
+.test{
+    float: right;
+
+}
+.card{
+    margin-bottom: 10%;
+    border:0;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+.view{
+    overflow: hidden;
+    position: relative;
+    cursor: default;
+}
+.overlay img{
+    transition: all 0.2s linear;
+}
+.view img{
+    display: block;
+    position: relative;
+}
+.card img{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.hm-white-slight .mask{
+    background-color: rgba(255,255,255, 0.1);
+}
+.overlay .mask{
+    opacity:0;
+    transition: all 0.4s ease-in-out;
+}
+.overlay:hover .mask {
+    opacity: 1;
+}
+.view .mask{
+    width:100%;
+    height:100%;
+    position: absolute;
+    overflow: hidden;
+    top:0;
+    left:0;
+}
+.footer{
+    position:fixed;
+    left:0;
+    bottom:0;
+    width:100%;
+    background-color: #585858;
+}
+.footer>.container>ul{
+    margin-bottom: 0;
+    padding: 0.5%;
+}
+.footer>.container>ul>li{
+    display: inline-block;
+    margin-right: 1.5%;
+    color: #A4A4A4;
+    font-size: 13px;
+}
+.footer>.container>ul>li>a{
+    color: #A4A4A4;
+    font-size: 13px;
+}
