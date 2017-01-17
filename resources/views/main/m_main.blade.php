@@ -7,12 +7,49 @@
 @endsection
 
 @section('category')
-    <a class="differ-a active" href="#">홈</a>
-    <a class="differ-a" href="#">경제</a>
-    <a class="differ-a" href="#">역사</a>
-    <a class="differ-a" href="#">사회</a>
-    <a class="differ-a" href="#">정치</a>
-    <a class="differ-a" href="#">IT/과학</a>
+    @if($c_id == 1)
+        <a class="differ-a" href="{{url('/')}}">홈</a>
+        <a class="differ-a" href="{{url('/?c_id=1')}}">경제</a>
+        <a class="differ-a" href="{{url('/?c_id=2')}}">역사</a>
+        <a class="differ-a" href="{{url('/?c_id=3')}}">사회</a>
+        <a class="differ-a" href="{{url('/?c_id=4')}}">정치</a>
+        <a class="differ-a" href="{{url('/?c_id=5')}}">IT/과학</a>
+    @elseif($c_id == 2)
+        <a class="differ-a" href="{{url('/')}}">홈</a>
+        <a class="differ-a" href="{{url('/?c_id=1')}}">경제</a>
+        <a class="differ-a active" href="{{url('/?c_id=2')}}">역사</a>
+        <a class="differ-a" href="{{url('/?c_id=3')}}">사회</a>
+        <a class="differ-a" href="{{url('/?c_id=4')}}">정치</a>
+        <a class="differ-a" href="{{url('/?c_id=5')}}">IT/과학</a>
+    @elseif($c_id == 3)
+        <a class="differ-a" href="{{url('/')}}">홈</a>
+        <a class="differ-a" href="{{url('/?c_id=1')}}">경제</a>
+        <a class="differ-a" href="{{url('/?c_id=2')}}">역사</a>
+        <a class="differ-a active" href="{{url('/?c_id=3')}}">사회</a>
+        <a class="differ-a" href="{{url('/?c_id=4')}}">정치</a>
+        <a class="differ-a" href="{{url('/?c_id=5')}}">IT/과학</a>
+    @elseif($c_id == 4)
+        <a class="differ-a" href="{{url('/')}}">홈</a>
+        <a class="differ-a" href="{{url('/?c_id=1')}}">경제</a>
+        <a class="differ-a" href="{{url('/?c_id=2')}}">역사</a>
+        <a class="differ-a" href="{{url('/?c_id=3')}}">사회</a>
+        <a class="differ-a active" href="{{url('/?c_id=4')}}">정치</a>
+        <a class="differ-a" href="{{url('/?c_id=5')}}">IT/과학</a>
+    @elseif($c_id == 5)
+        <a class="differ-a" href="{{url('/')}}">홈</a>
+        <a class="differ-a" href="{{url('/?c_id=1')}}">경제</a>
+        <a class="differ-a" href="{{url('/?c_id=2')}}">역사</a>
+        <a class="differ-a" href="{{url('/?c_id=3')}}">사회</a>
+        <a class="differ-a" href="{{url('/?c_id=4')}}">정치</a>
+        <a class="differ-a active" href="{{url('/?c_id=5')}}">IT/과학</a>
+    @else
+        <a class="differ-a active" href="{{url('/')}}">홈</a>
+        <a class="differ-a" href="{{url('/?c_id=1')}}">경제</a>
+        <a class="differ-a" href="{{url('/?c_id=2')}}">역사</a>
+        <a class="differ-a" href="{{url('/?c_id=3')}}">사회</a>
+        <a class="differ-a" href="{{url('/?c_id=4')}}">정치</a>
+        <a class="differ-a" href="{{url('/?c_id=5')}}">IT/과학</a>
+    @endif
 @endsection
 @section('contents')
     @foreach($contents as $content)
