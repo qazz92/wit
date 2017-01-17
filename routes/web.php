@@ -13,6 +13,8 @@
 
 Route::get('/', 'MainController@index');
 
+Route::get('/infinite','MainController@infiniteScroll');
+
 Route::post('/main/reply/like','MainController@like')->middleware('auth');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
