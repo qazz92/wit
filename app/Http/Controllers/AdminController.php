@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Category;
 use App\Content;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,15 +17,17 @@ class AdminController extends Controller
         return view('admin.home');
     }
     public function getWrite(){
-        return view('admin.write');
+        $dbResult = Category::all();
+        return view('admin.write')->with('cates',$dbResult);
     }
     public function write(Request $request){
         $title = $request->input('title');
         $body = $request->input('body');
+        $cate = $request->input('cate');
         preg_match_all("/<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>/i", $body , $match);
         $pices = explode('/',$match[1][0]);
         $image = Image::make($pices[3].'/'.$pices[4].'/'.$pices[5].'/'.$pices[6])->resize(300, 150)->save(public_path('images/upload/article/thumbnail').'/'.'resize_'.$pices[6]);
-        $dbResult = Content::create(array('title' => $title , 'context' => $body,'image'=>url('/').'/images/upload/article/thumbnail/'.'resize_'.$pices[6],'user_id'=>Auth::user()["id"],"category_id"=>1));
+        $dbResult = Content::create(array('title' => $title , 'context' => $body,'image'=>url('/').'/images/upload/article/thumbnail/'.'resize_'.$pices[6],'user_id'=>Auth::user()["id"],"category_id"=>$cate));
         $response = array ('status' => 'success','result'=>$dbResult["id"]);
         return response ()->json ($response);
     }
@@ -46,4 +49,5 @@ class AdminController extends Controller
             echo 'Oh No! Uploading your image has failed.';
         }
     }
+
 }

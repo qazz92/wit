@@ -10,8 +10,14 @@
 @endsection
 @section('contents')
     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 test">
-
-            <input class="input" type="text" id="title" name="title" placeholder="제목을 입력해주세요." style="margin-bottom: 1%;">
+            <label for="title">제목</label>
+            <input class="input" type="text" id="title" name="title" placeholder="제목을 입력해주세요." style="margin-bottom: 1%;"><br>
+            <label for="category">카테고리</label>
+            <select id="category">
+                @foreach($cates as $item)
+                <option value="{{$item->id}}">{{$item->name}}</option>
+                @endforeach
+            </select>
             <div id="summernote"></div>
 
             <button id="writeBtn">저장</button>
@@ -66,14 +72,14 @@ $(document).ready(function() {
         $("#writeBtn").click(function () {
             var body = $('#summernote').summernote('code');
             var title = $('#title').val();
-            console.log(title);
+            var cate = $("#category").val();
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 url: '/admin/write',
                 type: "post",
-                data: {'title':title,'body':body },
+                data: {'title':title,'body':body,'cate':cate },
                 success: function(data){
                     if (data.status == 'success') {
                         alert('글이 등록되었습니다.');
