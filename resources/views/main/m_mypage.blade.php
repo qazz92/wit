@@ -56,7 +56,7 @@
             <div>
                 <div class="update-button">
                     <button type="button" id="up-can" class="btn up-can">취소</button>
-                    <button type="submit" class="btn up-ok">확인</button>
+                    <button type="submit" class="btn up-ok" id="pwUpdateBtn">확인</button>
                 </div>
             </div>
         </div>
@@ -94,6 +94,7 @@
                                 $("#now-pw").val('');
                                 $("#pw-update").val('');
                                 $("#pw-con").val('');
+                                location.href='/logout';
                             } else {
                                 alert('비밀번호 변경실패...');
                                 console.log(data);

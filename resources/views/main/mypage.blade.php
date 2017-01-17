@@ -101,6 +101,7 @@
                                 $("#now-pw").val('');
                                 $("#pw-update").val('');
                                 $("#pw-con").val('');
+                                location.href='/logout';
                             } else {
                                 alert('비밀번호 변경실패...');
                                 console.log(data);
