@@ -52,7 +52,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                        <button type="button" name="cancle-bt" id="cancle-bt" class="btn btn1">취소</button>
+                                        <button type="button" name="cancle-bt" id="cancle-bt" class="btn btn1" onclick="location.href='/'">취소</button>
                                         <button type="submit" name="login-bt" id="login-bt" class="btn btn1">로그인</button>
 
                                         <a class="btn btn-link" href="{{ url('/password/reset') }}">

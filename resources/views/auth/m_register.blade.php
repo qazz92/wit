@@ -62,7 +62,7 @@
                             {{--@endif--}}
                             {{--</div> --}}
                             <div class="form-group">
-                                <button type="button" name="cancel" id="cancel" class="btn btn1" onclick="location.href='index.html'">취소</button>
+                                <button type="button" name="cancel" id="cancel" class="btn btn1" onclick="location.href='/'">취소</button>
                                 <button type="submit" class="btn btn1" id="reg_btn">
                                     회원가입
                                 </button>
