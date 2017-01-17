@@ -119,7 +119,9 @@
 
 
     @endforeach
-    <img id='loading' src='/assets/image/Loading_icon.gif' style="display:none;"/>
+             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9" style="float: right">
+                 <img  src='/assets/image/Loading_icon.gif' id='loading' style="display:none; width: 20%; margin:auto;"/>
+             </div>
         </div>
         </div>
     </section>
@@ -190,51 +192,57 @@
                 }//c_id sort end
 
                 $.ajax({ // ajax start
-                            type: 'get',
-                            url: "/infinite",
-                            data: {
-                                page: page, c_id : c_id
-                            },
-                            beforeSend : function(){
+                        type: 'get',
+                        url: "/infinite",
+                        data: {
+                            page: page, c_id : c_id
+                        },
+                        beforeSend : function(){
                             $('#loading').css("display", "block");
-                            },
-                            complete : function(){
+                        },
+                        complete : function(){
                             $('#loading').css("display", "none");
-                            },
-                            success: function (data) {
-                                console.log(Object.keys(data.inficon.data).length);
-                                for(var i=0;i<Object.keys(data.inficon.data).length;i++){
+                        },
+                        success: function (data) {
+                            console.log(Object.keys(data.inficon.data).length);
+                            if(Object.keys(data.inficon.data).length==0) {
+                                $('#end-mess').css("display", "block");
+                                $('#loading').remove();
+
+                            }else{
+                                for (var i = 0; i < Object.keys(data.inficon.data).length; i++) {
                                     $('#test').append(
-                                            "<div class='col-lg-3 col-md-4 col-sm-4 col-xs-6 col-padding' id='modalBtn{{$content->id}}' data-toggle='modal' data-target='#myModal{{$content->id}}' onclick='modal_resize();'>" +
-                                            "<div class='card'>" +
-                                            "<div class='image_div view overlay hm-white-slight'>" +
-                                            "<img class='magazine_image' src='"+data.inficon.data[i].image+"'>" +
-                                            "<a href='#'>" +
-                                            "<div class='mask'>" + "</div>" +
-                                            "</a>" +
-                                            "</div>" +
-                                            "<div class='magazine_span_div card-block'>" +
-                                            "<span>"+data.inficon.data[i].title+"</span>" +
-                                            "</div>" +
-                                            "</div>" +
-                                            "</div>" +
-                                            "<div class='modal fade' id='myModal"+data.inficon.data[i].id+"' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' >" +
-                                            "<div class='modal-dialog' role='document'>" +
-                                            "<div class='modal-content'>" +
-                                            "<iframe id='main_modal"+data.inficon.data[i].id+"' class='modal_div1' src='' width='73%' height='750' frameborder='no'>" +
-                                            "</iframe>" +
-                                            "<iframe id='side_modal"+data.inficon.data[i].id+"' class='modal_div2' src='' width='27%' height='750' frameborder='no' scrollbar='no' allowtransparency='true' >" +
-                                            "</iframe>" +
-                                            "</div>" +
-                                            "</div>" +
-                                            "</div>"
+                                        "<div class='col-lg-3 col-md-4 col-sm-4 col-xs-6 col-padding' id='modalBtn{{$content->id}}' data-toggle='modal' data-target='#myModal{{$content->id}}' onclick='modal_resize();'>" +
+                                        "<div class='card'>" +
+                                        "<div class='image_div view overlay hm-white-slight'>" +
+                                        "<img class='magazine_image' src='" + data.inficon.data[i].image + "'>" +
+                                        "<a href='#'>" +
+                                        "<div class='mask'>" + "</div>" +
+                                        "</a>" +
+                                        "</div>" +
+                                        "<div class='magazine_span_div card-block'>" +
+                                        "<span>" + data.inficon.data[i].title + "</span>" +
+                                        "</div>" +
+                                        "</div>" +
+                                        "</div>" +
+                                        "<div class='modal fade' id='myModal" + data.inficon.data[i].id + "' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' >" +
+                                        "<div class='modal-dialog' role='document'>" +
+                                        "<div class='modal-content'>" +
+                                        "<iframe id='main_modal" + data.inficon.data[i].id + "' class='modal_div1' src='' width='73%' height='750' frameborder='no'>" +
+                                        "</iframe>" +
+                                        "<iframe id='side_modal" + data.inficon.data[i].id + "' class='modal_div2' src='' width='27%' height='750' frameborder='no' scrollbar='no' allowtransparency='true' >" +
+                                        "</iframe>" +
+                                        "</div>" +
+                                        "</div>" +
+                                        "</div>"
                                     );
                                 }
                                 {{--console.log("page : "+data);--}}
-                                page=page+1; //infinite page ++
+                                    page = page + 1; //infinite page ++
                             }
                         }
-                )//ajax end
+                    }
+                )
             }
         });
     </script>
