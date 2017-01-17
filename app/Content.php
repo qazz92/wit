@@ -16,4 +16,7 @@ class Content extends Model
     public function Reply() {
         return $this->hasMany('App\Reply');
     }
+    public function Category(){
+        return $this->hasOne('App\Category');
+    }
 }

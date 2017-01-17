@@ -13,6 +13,7 @@
 
 Route::get('/', 'MainController@index');
 
+
 Route::post('/main/reply/like','MainController@like')->middleware('auth');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
