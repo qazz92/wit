@@ -25,6 +25,7 @@ class MainController extends Controller
         $c_id = $request->input('c_id');
         Log::info("id : ".$c_id);
         if ($c_id == null){
+            $c_id = 0;
             $contents = DB::table('contents')->select('id','title','image')->orderby('id','desc')->get();
         } else {
             $contents = DB::table('contents')->select('id','title','image')->where('category_id','=',$c_id)->orderby('id','desc')->get();
@@ -33,7 +34,7 @@ class MainController extends Controller
         if ( $agent->isMobile() ) {
             return view('home');
         } else {
-            return view('main.main')->with('contents',$contents)->with('bests',$bests);
+            return view('main.main')->with('contents',$contents)->with('bests',$bests)->with('c_id',$c_id);
         }
 
     }
