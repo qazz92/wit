@@ -26,7 +26,7 @@ $(document).ready(function() {
 
     $("img").addClass("img-responsive");
 
-    var IMAGE_PATH = 'http://localhost:8000/images/upload/article/';
+    var IMAGE_PATH = '{{url('/')}}/images/upload/article/';
 
     $('#summernote').summernote({
         height: 500,

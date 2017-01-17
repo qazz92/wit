@@ -16,7 +16,7 @@
             <span aria-hidden="true">&times;</span>
         </button>
         <div class="modal-header div2_header">
-            <img class="users" src="http://localhost:8000/{{$cts_s[0]->th}}" width="30%" style="display:block; margin:auto;">
+            <img class="users" src="{{url('/')}}/{{$cts_s[0]->th}}" width="30%" style="display:block; margin:auto;">
             <p class="test_pp">관리자</p>
             <p class="test_pp1">{{$cts_s[0]->name}}</p>
         </div>

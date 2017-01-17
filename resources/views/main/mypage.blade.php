@@ -115,7 +115,7 @@
                 alert("현재 비밀번호를 입력 해주세요");
             }
         });
-        var IMAGE_PATH = 'http://localhost:8000/images/upload/thumbnail';
+        var IMAGE_PATH = '{{url('/')}}/images/upload/thumbnail';
         $('input[name=inputTh]').change(function(ev) {
             var data = new FormData();
             data.append("thum",$('#inputTh')[0].files[0]);
