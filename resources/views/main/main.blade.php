@@ -195,7 +195,7 @@
                                 page: page, c_id : c_id
                             },
                             beforeSend : function(){
-                            $('#test').append("<img src='/assets/image/Loading_icon.gif'/>)
+                            $('#test').append("<img src='/assets/image/Loading_icon.gif'/>")
                             },
                             success: function (data) {
                                 console.log(Object.keys(data.inficon.data).length);
