@@ -12,12 +12,12 @@
                 <div class="card">
                     <div class="today">
                         <ul class="nav">
-                            <li class="active" role="presentation"><a href="{{url('/')}}">홈</a></li>
-                            <li role="presentation"><a href="#">경제</a></li>
-                            <li role="presentation"><a href="#">역사</a></li>
-                            <li role="presentation"><a href="#">사회</a></li>
-                            <li role="presentation"><a href="#">정치</a></li>
-                            <li role="presentation"><a href="#">IT/과학</a></li>
+                            <li class="active" role="presentation" id="home"><a href="{{url('/')}}">홈</a></li>
+                            <li class="" role="presentation" id="e"><a href="{{url('/?c_id=1')}}">경제</a></li>
+                            <li class="" role="presentation" id="h"><a href="{{url('/?c_id=2')}}">역사</a></li>
+                            <li class="" role="presentation" id="s"><a href="{{url('/?c_id=3')}}">사회</a></li>
+                            <li class="" role="presentation" id="p"><a href="{{url('/?c_id=4')}}">정치</a></li>
+                            <li class="" role="presentation" id="i"><a href="{{url('/?c_id=5')}}">IT/과학</a></li>
                         </ul>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 test" >
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 test">
          @foreach($contents as $content)
 
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6 col-padding" id="modalBtn{{$content->id}}" data-toggle="modal" data-target="#myModal{{$content->id}}" onclick="modal_resize();">
@@ -56,10 +56,10 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <!-- 1단락 -->
-                                <iframe id="main_modal{{$content->id}}" class="modal_div1" src="{{url('/main/main_modal/')}}/{{$content->id}}" width="73%" height="750" frameborder="no">
+                                <iframe id="main_modal{{$content->id}}" class="modal_div1" src="" width="73%" height="750" frameborder="no">
                                 </iframe>
                                 <!--                   2단락 -->
-                                <iframe id="side_modal{{$content->id}}" class="modal_div2" src="{{url('/main/side_modal/')}}/{{$content->id}}" width="27%" height="750" frameborder="no" scrollbar="no" allowtransparency="true" >
+                                <iframe id="side_modal{{$content->id}}" class="modal_div2" src="" width="27%" height="750" frameborder="no" scrollbar="no" allowtransparency="true" >
                                 </iframe>
                             </div>
                         </div>
@@ -80,5 +80,14 @@
         function best() {
             $("#best_div").load(window.location.href+" #best_div");
         }
+        $('[id^=modalBtn]').on('click', function(e) {
+            var id = $(this).attr("id");
+            var number = id.replace("modalBtn", "");
+            var src = "{{url('/main/main_modal')}}"+"/"+number;
+            var src_side = "{{url('/main/side_modal')}}"+"/"+number;
+
+            $("#main_modal"+number).attr({'src':src});
+            $("#side_modal"+number).attr({'src':src_side});
+        });
     </script>
 @endsection
