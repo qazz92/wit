@@ -1,8 +1,8 @@
 html {
-  height: 100%;
+    height: 100%;
 }
 body {
-  height: 100%;
+    height: 100%;
 }
 input:focus{
     outline: 0 !important;
@@ -11,26 +11,26 @@ button:focus{
     outline: 0 !important;
 }
 #main {
-  height: 100%;
-  background-image: url(https://s-passets-cache-ak0.pinimg.com/webapp/style/app/common/images/inspired-desktop/bg_plants_grid-4364d1d8.jpg);
-  background-size:cover;
-  animation:scrollBgGridLinks 35s linear;
-  -mozkit-animation:scrollBgGridLinks 35s linear;
-  -webkit-animation:scrollBgGridLinks 35s linear;
-  animation-fill-mode:forwards;
-  -webkit-animation-fill-mode:forwards;
-  -moz-animation-fill-mode:forwards;
-  border: none;
+    height: 100%;
+    background-image: url(http://i.imgur.com/xOzXUvJ.jpg);
+    background-size:cover;
+    animation:scrollBgGridLinks 35s linear;
+    -mozkit-animation:scrollBgGridLinks 35s linear;
+    -webkit-animation:scrollBgGridLinks 35s linear;
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    border: none;
 }
 #reg{
-  width: 55%;
-  margin: auto;
-  background: white;
-  height: 80%;
-  position: relative;
-  top: 50%;
-  transform: translateY(-47%);
-  border-radius: 15px;
+    width: 55%;
+    margin: auto;
+    background: white;
+    height: 80%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-47%);
+    border-radius: 15px;
     border: none;
 }
 #reg_l {
@@ -38,7 +38,7 @@ button:focus{
     width: 50%;
     height: 100%;
     float: left;
-    background-image: url(https://s-passets-cache-ak0.pinimg.com/webapp/style/app/common/images/inspired-desktop/bg_plants_half-17f777d3.jpg);
+    background-image: url(http://i.imgur.com/Yi7IFZt.jpg);
     background-size:cover;
     background-position:50% 0%;
     -webkit-border-radius: 15px;
@@ -56,42 +56,42 @@ button:focus{
     margin: 0 auto;
 }
 .outer {
-  display: table;
-  width: 100%;
-  height: 100%;
+    display: table;
+    width: 100%;
+    height: 100%;
 }
 .inner {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  padding: 5%;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 5%;
 }
 .centered {
-  position: relative;
-  display: inline-block;
-  padding: 1em;
+    position: relative;
+    display: inline-block;
+    padding: 1em;
 }
 .form-group{
     display: inline-block;
     width: 100%;
 }
 .input{
-  background-color:#f3f3f3;
-  border:solid 1px #ccc;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-  position:relative;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  border-radius:3px;
-  font-weight:bold;
-  padding:10px;
-  -webkit-box-sizing:border-box;
-  box-sizing:border-box;
-  width:100%;
-  color:#333;
-  font-size:14px;
-  outline: 0;
+    background-color:#f3f3f3;
+    border:solid 1px #ccc;
+    -webkit-box-shadow:none;
+    box-shadow:none;
+    position:relative;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    border-radius:3px;
+    font-weight:bold;
+    padding:10px;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    width:100%;
+    color:#333;
+    font-size:14px;
+    outline: 0;
 }
 .btn1 {
     display: inline-block;

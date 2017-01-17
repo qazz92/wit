@@ -29,7 +29,7 @@
             <p>
                         <span><i class="fa fa-heart" style="font-size:17px; color:lightgrey;"></i>
                             좋아요  </span>
-                <span class="p_right">{{$cts_s[0]->likes}}</span>
+                <span class="p_right">{{$likes}}</span>
             </p>
             <p>
                         <span><i class="fa fa-comment" style="font-size:17px; color:lightgrey;"></i>

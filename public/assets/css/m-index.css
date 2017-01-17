@@ -35,10 +35,10 @@
 }
 
 .radio {
+    font-size: 100%;
     float: right;
     padding-bottom: 2%;
 }
-
 .modal_like {
     margin-bottom: 5%;
 }
@@ -53,9 +53,6 @@
     border: 1px solid #ccc;
 }
 
-.modal_like_a_dis {
-    display: none;
-}
 
 .modal_space {
     margin-right: 5%;
@@ -70,23 +67,23 @@
     font-size: 14px;
     cursor: default;
     margin-right: 3%;
-    color: #ff0083;
+    color: #ff0083 ;
 }
 
 #review_like {
     margin-right: 3%;
-    color: #ef6e6e;
+    color: #ef6e6e ;
     cursor: pointer;
 }
 
 #review_dislike {
-    color: #8675f4;
+    color: #8675f4 ;
     cursor: pointer;
     display: none;
 }
 
 .right_background {
-    background-color: #595959;
+    background-color: #595959 ;
 }
 
 .modal-content {
@@ -128,7 +125,7 @@
 }
 
 #myModalLabel {
-    color: #595959;
+    color: #595959 ;
     font-weight: 600
 }
 
@@ -153,7 +150,7 @@
 }
 
 .test_color {
-    color: #f14848;
+    color: #f14848 ;
 }
 
 .modal_like {
@@ -168,31 +165,31 @@
 
 .modal_like_a:hover {
     text-decoration: none;
-    background-color: #e47e73;
+    background-color: #e47e73 ;
     color: white;
     border: none;
-    border: 1px solid #e47e73;
+    border: 1px solid #e47e73 ;
     cursor: pointer;
 }
 
 .modal_like_a_dis {
-    background-color: #e47e73;
+    background-color: #e47e73 ;
     color: white;
     border: none;
     cursor: pointer;
-    border: 1px solid #e47e73;
+    border: 1px solid #e47e73 ;
     padding: 10px 15px;
 }
 
 .modal_like_a_dis:hover {
     text-decoration: none;
     color: white;
-    background-color: #e47e73;
-    border: 1px solid #e47e73;
+    background-color: #e47e73 ;
+    border: 1px solid #e47e73 ;
 }
 
 .m_magazine_review {
-    background-color: #e4e4e4;
+    background-color: #e4e4e4 ;
     padding: 3% 9%;
 }
 
@@ -220,9 +217,9 @@
 
 .review_bt_style {
     border: 0;
-    width: 50px;
+    width: 90%;
     height: 90px;
-    background-color: #617df6;
+    background-color: #617df6 ;
     color: white;
 }
 
@@ -243,18 +240,18 @@
 }
 
 .review_nik {
-    color: #595959;
-    font-size: 14px;
+    color: #595959 ;
+    font-size: 100%;
     padding-bottom: 10px;
 }
 
 .review_con {
-    font-size: 12px;
+    font-size: 100%;
 }
 
 .review_time {
     color: lightgray;
-    font-size: 12px;
+    font-size: 90%;
 }
 
 .close {
@@ -291,4 +288,3 @@
     margin: 4%;
     color: lightgray;
 }
-

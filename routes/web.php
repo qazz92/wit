@@ -50,3 +50,13 @@ Route::get('/admin/list','AdminController@showList')->middleware('auth','admin')
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+
+//박민규꺼
+Route::post('/like','MainController@like');
+
+Route::post('/dislike','MainController@dislike');
+
+Route::post('/zzim','MainController@zzim');
+
+Route::post('/diszzim','MainController@diszzim');

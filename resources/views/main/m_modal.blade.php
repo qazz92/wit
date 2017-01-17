@@ -3,36 +3,54 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>{{$cts_m[0]->title}}</title>
     <link rel="stylesheet" href="{{asset('assets/bootstrap/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/m-common.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/m-index.css')}}">
 </head>
 
-<body>
+<body style="font-size:300%;">
 <div class="m-header">
-    <h2 class="modal-title" id="myModalLabel">{{$cts_m[0]->title}}</h2>
+    <h1 class="modal-title" id="myModalLabel">{{$cts_m[0]->title}}</h1>
     <p id="test_time">{{$cts_m[0]->updated_at}}</p>
 </div>
 
 <div class="m-body">
     <div style="width:80%; margin:auto;">
-        <h3 class="test_h4" id="test_start"><strong>{{$cts_m[0]->title}}</strong></h3>
+        <h1 class="test_h4" id="test_start"><strong>{{$cts_m[0]->title}}</strong></h1>
         <div class="test_div">
             {!! $cts_m[0]->context !!}
         </div>
 
         <!-- 따봉 / 찜 -->
-        <div class='modal_like'>
-            <a id="modal_like_a" class='modal_like_a modal_space' onclick="modal_like_a();"><i class='fa fa-heart' style='font-size:17px;'></i>
-                따봉 </a>
-            <a id="modal_dislike_a" class='modal_like_a_dis modal_space' onclick="modal_dislike_a();"><i class='fa fa-heart' style='font-size:17px;'></i>
-                따봉 </a>
+        {{--<div class='modal_like'>--}}
+            {{--<a id="modal_like_a" class='modal_like_a modal_space' onclick="modal_like_a();"><i class='fa fa-heart' style='font-size:17px;'></i>--}}
+                {{--따봉 </a>--}}
+            {{--<a id="modal_dislike_a" class='modal_like_a_dis modal_space' onclick="modal_dislike_a();"><i class='fa fa-heart' style='font-size:17px;'></i>--}}
+                {{--따봉 </a>--}}
 
-            <a id="modal_zz_a" class='modal_like_a' onclick="modal_zz_a();"><i class="fa fa-gift" style='font-size:17px;'></i>
-                찜 </a>
-            <a id="modal_diszz_a" class='modal_like_a_dis' onclick="modal_diszz_a();"><i class="fa fa-gift" style='font-size:17px;'></i>
-                찜 </a>
+            {{--<a id="modal_zz_a" class='modal_like_a' onclick="modal_zz_a();"><i class="fa fa-gift" style='font-size:17px;'></i>--}}
+                {{--찜 </a>--}}
+            {{--<a id="modal_diszz_a" class='modal_like_a_dis' onclick="modal_diszz_a();"><i class="fa fa-gift" style='font-size:17px;'></i>--}}
+                {{--찜 </a>--}}
+        {{--</div>--}}
+    <!-- 좋아요 / 찜 박민규꺼-->
+        <div class='modal_like' id="modal_like">
+            @if($check_like != "1")
+                <a id="modal_like_a" class='modal_like_a modal_space' onclick="like()"><i class='fa fa-heart' style='font-size:17px;'></i>
+                    따봉 </a>
+            @else
+                <a id="modal_dislike_a" class='modal_like_a_dis modal_space' onclick="dislike()"><i class='fa fa-heart' style='font-size:17px;'></i>
+                    따봉 </a>
+            @endif
+            @if($check_pin != "1")
+                <a id="modal_zz_a" class='modal_like_a' onclick="zzim()"><i class="fa fa-gift" style='font-size:17px;'></i>
+                    찜 </a>
+            @else
+                <a id="modal_diszz_a" class='modal_like_a_dis' onclick="diszzim()"><i class="fa fa-gift" style='font-size:17px;'></i>
+                    찜 </a>
+            @endif
         </div>
     </div>
 </div>
@@ -79,10 +97,10 @@
     <div class="magazine_review1">
         @foreach($replys as $reply)
             <div class="row row_line">
-                <div class="col-xs-1 review_padding">
-                    <img class="users" src="http://localhost:8000/{{$reply->th}}" width="70%" height="70%">
+                <div class="col-xs-2 review_padding">
+                    <img class="users" src="http://localhost:8000/{{$reply->th}}" width="75%" height="75%">
                 </div>
-                <div class="col-xs-11 review_padding">
+                <div class="col-xs-10 review_padding">
                     <div class="review_span_bottom">
                         <span class="review_nik"><strong>{{$reply->name}}</strong>
                             @if($reply->r_t==="aha")
@@ -145,12 +163,44 @@
     $("#loginBtn").click(function () {
         window.open("{{url('/login')}}",'_parent');
     });
+    {{--$("#review_bt").click(function () {--}}
+        {{--var body = $('#review_area').val();--}}
+        {{--var radio = $(':radio[name="radio"]:checked').val();--}}
+
+        {{--if (body == '' ){--}}
+            {{--alert("내용을 입력해주세요");--}}
+        {{--} else if (typeof radio === "undefined"){--}}
+            {{--alert("타입을 선택해주세요");--}}
+        {{--} else {--}}
+            {{--$.ajax({--}}
+                {{--headers: {--}}
+                    {{--'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
+                {{--},--}}
+                {{--url: '/main/reply',--}}
+                {{--type: "post",--}}
+                {{--data: {'body':body, 'type':radio, 'm_id':"{{$m_id}}"},--}}
+                {{--success: function(data){--}}
+                    {{--if (data.msg == 'ok') {--}}
+                        {{--alert("OK!!");--}}
+                        {{--console.log(data.result_body.type);--}}
+                        {{--$("#reply_div").load(window.location.href+" #reply_div");--}}
+{{--//                        parent.frames.left.location.reload();--}}
+                    {{--} else {--}}
+                        {{--console.log(data);--}}
+                    {{--}--}}
+                {{--}--}}
+            {{--});--}}
+        {{--}--}}
+    {{--});--}}
+    //박민규꺼
     $("#review_bt").click(function () {
         var body = $('#review_area').val();
         var radio = $(':radio[name="radio"]:checked').val();
-
-        if (body == '' ){
+        var string = document.getElementById("review_area").value;
+        if (body == '' ) {
             alert("내용을 입력해주세요");
+        } else if (getStringLength(string)>240){
+            alert("한글 120자 / 영어 240자를 초과할 수 없습니다.");
         } else if (typeof radio === "undefined"){
             alert("타입을 선택해주세요");
         } else {
@@ -174,6 +224,97 @@
             });
         }
     });
+
+    // 문자열 길이 체크 알파뉴메릭(1자리), 한글(2자리)
+    function getStringLength (str){
+        var retCode = 0;
+        var strLength = 0;
+        for (i = 0; i < str.length; i++)
+        {
+            var code = str.charCodeAt(i)
+            var ch = str.substr(i,1).toUpperCase()
+            code = parseInt(code)
+            if ((ch < "0" || ch > "9") && (ch < "A" || ch > "Z") && ((code > 255) || (code < 0)))
+                strLength = strLength + 2;
+            else
+                strLength = strLength + 1;
+        }
+        return strLength;
+    }
+    function like() {
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: '/like',
+            type: "post",
+            cache: false,
+            data: {"content_id":"{{$cts_m[0]->id}}"},
+            success: function(data){
+                if (data) {
+                    alert("좋아요!");
+                    $("#modal_like").load(window.location.href+" #modal_like");
+                } else {
+                    console.log(data);
+                }
+            }
+        });
+    }
+    function dislike() {
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: '/dislike',
+            type: "post",
+            cache: false,
+            data: {"content_id":"{{$cts_m[0]->id}}"},
+            success: function(data){
+                if (data) {
+                    alert("좋아요 취소되었습니다.");
+                    $("#modal_like").load(window.location.href+" #modal_like");
+                } else {
+                    console.log(data);
+                }
+            }
+        });
+    }
+    function zzim(){
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: '/zzim',
+            type: "post",
+            data: {"content_id":"{{$cts_m[0]->id}}"},
+            success: function(data){
+                if (data) {
+                    alert("찜 되었습니다.");
+                    $("#modal_like").load(window.location.href+" #modal_like");
+                } else {
+                    console.log(data);
+                }
+            }
+        });
+    }
+    function diszzim(){
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: '/diszzim',
+            type: "post",
+            data: {"content_id":"{{$cts_m[0]->id}}"},
+            success: function(data){
+                if (data) {
+                    alert("찜 취소되었습니다.");
+                    $("#modal_like").load(window.location.href+" #modal_like");
+                } else {
+                    console.log(data);
+                }
+            }
+        });
+    }
 </script>
 </body>
 
