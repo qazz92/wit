@@ -9,7 +9,7 @@
 @section('category')
     @if($c_id == 1)
         <a class="differ-a" href="{{url('/')}}">홈</a>
-        <a class="differ-a" href="{{url('/?c_id=1')}}">경제</a>
+        <a class="differ-a active" href="{{url('/?c_id=1')}}">경제</a>
         <a class="differ-a" href="{{url('/?c_id=2')}}">역사</a>
         <a class="differ-a" href="{{url('/?c_id=3')}}">사회</a>
         <a class="differ-a" href="{{url('/?c_id=4')}}">정치</a>
