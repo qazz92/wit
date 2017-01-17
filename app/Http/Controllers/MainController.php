@@ -26,9 +26,9 @@ class MainController extends Controller
         Log::info("id : ".$c_id);
         if ($c_id == null){
             $c_id = 0;
-            $contents = DB::table('contents')->select('id','title','image')->orderby('id','desc')->get();
+            $contents = DB::table('contents')->select('id','title','image')->orderby('id','desc')->paginate(12);
         } else {
-            $contents = DB::table('contents')->select('id','title','image')->where('category_id','=',$c_id)->orderby('id','desc')->get();
+            $contents = DB::table('contents')->select('id','title','image')->where('category_id','=',$c_id)->orderby('id','desc')->paginate(12);
         }
         $bests = DB::table('contents')->select('id','title')->orderby('count','desc')->limit(5)->get();
         if ( $agent->isMobile() ) {
