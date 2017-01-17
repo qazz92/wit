@@ -25,6 +25,7 @@ class MainController extends Controller
         $c_id = $request->input('c_id');
         Log::info("id : ".$c_id);
         if ($c_id == null){
+            $c_id = 0;
             $contents = DB::table('contents')->select('id','title','image')->orderby('id','desc')->get();
         } else {
             $contents = DB::table('contents')->select('id','title','image')->where('category_id','=',$c_id)->orderby('id','desc')->get();
@@ -33,9 +34,20 @@ class MainController extends Controller
         if ( $agent->isMobile() ) {
             return view('home');
         } else {
-            return view('main.main')->with('contents',$contents)->with('bests',$bests);
+            return view('main.main')->with('contents',$contents)->with('bests',$bests)->with('c_id',$c_id);
         }
 
+    }
+    public function infiniteScroll(Request $request){
+        $page = $request->input('page');
+        $c_id = $request->input('c_id');
+        if ($c_id == -1){
+            $inficon = DB::table('contents')->select('id','title','image')->orderby('id','desc')->paginate(12);
+        } else {
+            $inficon = DB::table('contents')->select('id','title','image')->where('category_id','=',$c_id)->orderby('id','desc')->paginate(12);
+        }
+        $resultArr = array('page'=>$page,'inficon'=>$inficon);
+        return $resultArr;
     }
     public function count(Request $request){
         $m_id = $request->input("m_id");

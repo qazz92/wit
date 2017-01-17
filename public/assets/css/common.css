@@ -83,6 +83,7 @@ button:focus{
     color:#e47e73;
     text-decoration: none !important;
 }
+
 .nav>li>a:focus{
     background-color: white;
     color:#e47e73;
