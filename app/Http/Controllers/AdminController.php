@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Log;
+use Intervention\Image\ImageManagerStatic as Image;
 
 
 class AdminController extends Controller
@@ -21,7 +22,9 @@ class AdminController extends Controller
         $title = $request->input('title');
         $body = $request->input('body');
         preg_match_all("/<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>/i", $body , $match);
-        $dbResult = Content::create(array('title' => $title , 'context' => $body,'image'=>$match[1][0],'user_id'=>Auth::user()["id"],"category_id"=>1));
+        $pices = explode('/',$match[1][0]);
+        $image = Image::make($pices[3].'/'.$pices[4].'/'.$pices[5].'/'.$pices[6])->resize(300, 150)->save(public_path('images/upload/article/thumbnail').'/'.'resize_'.$pices[6]);
+        $dbResult = Content::create(array('title' => $title , 'context' => $body,'image'=>url('/').'/images/upload/article/thumbnail/'.'resize_'.$pices[6],'user_id'=>Auth::user()["id"],"category_id"=>1));
         $response = array ('status' => 'success','result'=>$dbResult["id"]);
         return response ()->json ($response);
     }

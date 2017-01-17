@@ -10,12 +10,11 @@
 @endsection
 @section('contents')
     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 test">
-        <form>
+
             <input class="input" type="text" id="title" name="title" placeholder="제목을 입력해주세요." style="margin-bottom: 1%;">
             <div id="summernote"></div>
 
             <button id="writeBtn">저장</button>
-        </form>
     </div>
 @endsection
 @section('js')
@@ -25,17 +24,21 @@
 
 $(document).ready(function() {
 
+    $("img").addClass("img-responsive");
+
     var IMAGE_PATH = 'http://localhost:8000/images/upload/article/';
 
     $('#summernote').summernote({
         height: 500,
         callbacks : {
             onImageUpload: function(image) {
-                uploadImage(image[0]);
+//                uploadImage(image[0]);
+                for (var i = image.length - 1; i >= 0; i--) {
+                    uploadImage(image[i], this);
+                }
             }
         }
     });
-
     function uploadImage(image) {
         var data = new FormData();
         data.append("image",image);

@@ -1,6 +1,6 @@
 @extends('layouts.main_layout')
 @section('meta')
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
 @endsection
 @section('css')
     <link rel="stylesheet" href="{{asset('assets/css/index.css')}}">
@@ -21,30 +21,16 @@
                         </ul>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card" id="best_div">
                     <div class="best">
                         <h3 class="best-h3">BEST</h3>
                         <hr class="best-hr">
+                        @foreach($bests as $best)
                         <p>
-                            <span class="best-number">1.</span>
-                            <span class="best-">베스트1</span>
+                            <span class="best-number">{{$loop->iteration}}</span>
+                            <span class="best-" data-toggle="modal" data-target="#myModal{{$best->id}}">{{$best->title}}</span>
                         </p>
-                        <p>
-                            <span class="best-number">2.</span>
-                            <span class="best-">베스트2</span>
-                        </p>
-                        <p>
-                            <span class="best-number">3.</span>
-                            <span class="best-">베스트3</span>
-                        </p>
-                        <p>
-                            <span class="best-number">4.</span>
-                            <span class="best-">베스트5</span>
-                        </p>
-                        <p>
-                            <span class="best-number">5.</span>
-                            <span class="best-">베스트5</span>
-                        </p>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -70,10 +56,10 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <!-- 1단락 -->
-                                <iframe id="main_modal{{$content->id}}" class="modal_div1" src="" width="73%" height="750" frameborder="no">
+                                <iframe id="main_modal{{$content->id}}" class="modal_div1" src="{{url('/main/main_modal/')}}/{{$content->id}}" width="73%" height="750" frameborder="no">
                                 </iframe>
                                 <!--                   2단락 -->
-                                <iframe id="side_modal{{$content->id}}" class="modal_div2" src="" width="27%" height="750" frameborder="no" scrollbar="no" allowtransparency="true" >
+                                <iframe id="side_modal{{$content->id}}" class="modal_div2" src="{{url('/main/side_modal/')}}/{{$content->id}}" width="27%" height="750" frameborder="no" scrollbar="no" allowtransparency="true" >
                                 </iframe>
                             </div>
                         </div>
@@ -86,33 +72,13 @@
     </section>
 @endsection
 @section('js')
+
     <script>
-        $('[id^=modalBtn]').on('click', function(e) {
-            var id = $(this).attr("id");
-            var number = id.replace("modalBtn", "");
-            var src = "/main/main_modal/"+number+"?random="+(new Date()).getTime() + Math.floor(Math.random() * 1000000);;
-            var src_side = "/main/side_modal/"+number+"?random="+(new Date()).getTime() + Math.floor(Math.random() * 1000000);;
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type : "POST",
-                url : "/main/count",
-                data: {"m_id":number},
-                cache: false,
-                error : function(){
-                    alert('통신 실패!!');
-                },
-                success : function(data){
-                    if(data == "ok"){
-                        $("#main_modal"+number).attr({'src':src});
-                        $("#side_modal"+number).attr({'src':src_side});
-                    }else {
-                        alert("에러가 발생하였습니다. 잠시후 다시 시도하여 주십시오.");
-                    }
-                }
-            });
+        $(document).ready(function() {
+            setInterval("best()", 3600000); // 매 5000ms(5초)가 지날 때마다 ozit_timer_test() 함수를 실행합니다.
         });
+        function best() {
+            $("#best_div").load(window.location.href+" #best_div");
+        }
     </script>
-    <script src="{{asset('assets/js/best.js')}}"></script>
 @endsection

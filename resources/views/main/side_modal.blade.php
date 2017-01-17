@@ -47,7 +47,6 @@
     <script>
         $(function(){
             $('#closeModal').click(function(){
-                console.log("click!!!");
                 parent.$('#myModal{{$m_id}}').modal('hide');
           });
       });

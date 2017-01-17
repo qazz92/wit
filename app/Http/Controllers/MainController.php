@@ -6,6 +6,7 @@ use App\Content;
 use App\Reply;
 use App\Reply_like;
 use App\Thumb;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Log;
@@ -13,13 +14,24 @@ use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Jenssegers\Agent\Agent;
+use Debugbar;
 
 class MainController extends Controller
 {
+
     public function index(){
-        $contents = DB::table('contents')->select('id','title','image')->orderby('updated_at')->get();
+        Debugbar::info("index다요!");
+        $agent = new Agent();
+        $contents = DB::table('contents')->select('id','title','image')->orderby('id','desc')->get();
 //        print_r($contents);
-       return view('main.main')->with('contents',$contents);
+        $bests = DB::table('contents')->select('id','title')->orderby('count','desc')->limit(5)->get();
+        if ( $agent->isMobile() ) {
+            return view('home');
+        } else {
+            return view('main.main')->with('contents',$contents)->with('bests',$bests);
+        }
+
     }
     public function count(Request $request){
         $m_id = $request->input("m_id");
@@ -43,11 +55,13 @@ class MainController extends Controller
         return view('main.main_modal')->with('cts_m',$main_modal)->with('replys',$reply)->with('m_id',$id);
     }
     public function side_modal($id){
-//        $side_modal = DB::table('contents')->select('likes','count')->where('id','=',$id)->get();
         $side_modal = DB::table('contents')->leftJoin('thumb','contents.user_id','=','thumb.user_id')
             ->leftJoin('users','contents.user_id','=','users.id')
             ->select('contents.likes as likes','contents.count as count','thumb.thumbnail as th','users.name as name')
             ->where('contents.id','=',$id)->get();
+        $dbResult = Content::find($id);
+        $dbResult->count = $dbResult["count"]+1;
+        $dbResult->save();
         $reply_count = DB::table('reply')->where('contents_id','=',$id)->count();
         return view('main.side_modal')->with('cts_s',$side_modal)->with('m_id',$id)->with('reply_count',$reply_count);
 //        print_r($side_modal);
@@ -119,5 +133,12 @@ class MainController extends Controller
             $dbResult = DB::table('reply_likes')->where('user_id','=',Auth::user()["id"])->where('reply_id','=',$r_id)->delete();
             echo "ok";
         }
+    }
+
+    public function keyword(Request $request){
+        $searchValue = $request->input("searchValue");
+        $dbResult = DB::table('contents')->select('id','title')->where('title', 'like', $searchValue."%")->get();
+//        $result = array("msg"=>"ok","keyword"=>$dbResult);
+        return $dbResult;
     }
 }

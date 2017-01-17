@@ -19,6 +19,8 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::post('/main/count','MainController@count');
 
+Route::get('/search_keyword','MainController@keyword');
+
 Route::get('/main/main_modal/{id}','MainController@main_modal')->middleware('nocache');
 
 Route::get('/main/side_modal/{id}','MainController@side_modal')->middleware('nocache');
@@ -26,6 +28,8 @@ Route::get('/main/side_modal/{id}','MainController@side_modal')->middleware('noc
 Route::post('/main/reply','MainController@reply')->middleware('auth');
 
 Route::get('/mypage','MainController@mypage')->middleware('auth');
+
+Route::post('/admin/uploadThum','AdminController@uploadThum')->middleware('auth','admin');
 
 Route::post('/mypage/uploadThum','MainController@uploadThum')->middleware('auth');
 

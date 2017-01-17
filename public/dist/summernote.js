@@ -6920,7 +6920,7 @@
       dialogsInBody: false,
       dialogsFade: false,
 
-      maximumImageFileSize: null,
+      maximumImageFileSize: 10000000,
 
       callbacks: {
         onInit: null,

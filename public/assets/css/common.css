@@ -115,8 +115,12 @@ button:focus{
     font-weight: 600;
     margin-right: 1%;
 }
+.img-responsive {
+    width: 100%;
+}
 .best-{
     color: #848484;
+    cursor: pointer;
     font-size: 13px
 }
 #find_form{

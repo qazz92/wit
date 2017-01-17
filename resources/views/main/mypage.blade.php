@@ -70,59 +70,6 @@
             </div>
         </div>
     </section>
-
-{{--<section class="con-sec">--}}
-    {{--<div class="container">--}}
-        {{--<div class="row">--}}
-            {{--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">--}}
-                {{--<ul class="list-group">--}}
-                    {{--<li class="list-group-item"><a href="{{url('/mypage')}}">프로필</a></li>--}}
-                    {{--<li class="list-group-item"><a href="{{url('/mypage-like')}}">나의 좋아요</a></li>--}}
-                    {{--<li class="list-group-item"><a href="{{url('/mypage-pin')}}">나의 찜목록</a></li>--}}
-                {{--</ul>--}}
-            {{--</div>--}}
-            {{--<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">--}}
-                {{--<div class="prof pro-wid">--}}
-                    {{--<form enctype="multipart/form-data" id="upload_form" role="form" method="POST">--}}
-                        {{--<div class="profile-image">--}}
-                            {{--<img id="thumbnail" src="{{'http://localhost:8000/'.$user[0]->th}}"></div>--}}
-                        {{--<input type="file" id="inputTh" name="inputTh" accept="image/*">--}}
-                    {{--</form>--}}
-                {{--</div>--}}
-                {{--<div class="prof">--}}
-                    {{--<h4>{{$user[0]->name}}</h4>--}}
-                {{--</div>--}}
-                {{--<div class="update-bt">--}}
-                    {{--<button type="button" id="up-bt" class="btn up-bt">수정</button>--}}
-                {{--</div>--}}
-                {{--<div class="prof-update">--}}
-                    {{--<h4 class="h4"><strong>계정정보 변경</strong></h4><br>--}}
-
-                    {{--<span class="update-span">이메일</span>--}}
-                    {{--<p>{{$user[0]->email}}</p>--}}
-                    {{--<span class="update-span">닉네임</span>--}}
-                    {{--<input class="input nick-input" type="text" id="nick-update" name="nick-update" placeholder="현재 닉네임" value="{{$user[0]->name}}">--}}
-
-                    {{--<h4 class="h4" style="margin-top:5%;"><strong>비밀번호 변경</strong></h4><br>--}}
-
-                    {{--<span class="update-span">현재 비밀번호 입력</span>--}}
-                    {{--<input class="input pw-input" type="password" id="now-pw" name="now-pw" placeholder="현재 비밀번호"><br>--}}
-                    {{--<span class="update-span">새로운 비밀번호 입력</span>--}}
-                    {{--<input class="input pw-input" type="password" id="pw-update" name="pw-update" placeholder="새로운 비밀번호"><br>--}}
-                    {{--<span class="update-span">새로운 비밀번호 확인</span>--}}
-                    {{--<input class="input pw-input" type="password" id="pw-con" name="pw-con" placeholder="새로운 비밀번호 확인"><br>--}}
-
-                    {{--<div>--}}
-                        {{--<button type="button" class="btn up-can">취소</button>--}}
-                        {{--<button type="button" class="btn up-ok" id="pwUpdateBtn">확인</button>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-
-{{--</section>--}}
-
 @endsection
 @section('js')
 
