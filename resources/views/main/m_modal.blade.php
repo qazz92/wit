@@ -98,7 +98,7 @@
         @foreach($replys as $reply)
             <div class="row row_line">
                 <div class="col-xs-2 review_padding">
-                    <img class="users" src="http://localhost:8000/{{$reply->th}}" width="75%" height="75%">
+                    <img class="users" src="{{url('/')}}/{{$reply->th}}" width="75%" height="75%">
                 </div>
                 <div class="col-xs-10 review_padding">
                     <div class="review_span_bottom">

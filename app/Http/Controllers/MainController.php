@@ -72,6 +72,10 @@ class MainController extends Controller
             ->orderby('reply.updated_at','desc')
             ->get();
 
+        $dbResult = Content::find($id);
+        $dbResult->count = $dbResult["count"]+1;
+        $dbResult->save();
+
     //pmk
         $getUserId = Auth::user()["id"];
         $islikesnull = DB::table('content_likes')->select('id')->where('user_id','=',$getUserId)->where('content_id','=',$id)->get();
