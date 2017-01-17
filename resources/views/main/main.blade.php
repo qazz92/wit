@@ -196,10 +196,10 @@
                                 page: page, c_id : c_id
                             },
                             beforeSend : function(){
-                            $('#loading').css("display", block);
+                            $('#loading').css("display", "block");
                             },
                             complete : function(){
-                            $('#loading').css("display", none);
+                            $('#loading').css("display", "none");
                             },
                             success: function (data) {
                                 console.log(Object.keys(data.inficon.data).length);
