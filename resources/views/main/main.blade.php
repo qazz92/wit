@@ -119,6 +119,7 @@
 
 
     @endforeach
+    <img id='loading' src='/assets/image/Loading_icon.gif' style="display:none;"/>
         </div>
         </div>
     </section>
@@ -195,10 +196,10 @@
                                 page: page, c_id : c_id
                             },
                             beforeSend : function(){
-                            $('#test').append("<img id='loading' src='/assets/image/Loading_icon.gif'/>");
+                            $('#loading').css("display", block);
                             },
                             complete : function(){
-                            $('#loading').hide();
+                            $('#loading').css("display", none);
                             },
                             success: function (data) {
                                 console.log(Object.keys(data.inficon.data).length);
