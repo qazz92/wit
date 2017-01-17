@@ -38,6 +38,17 @@ class MainController extends Controller
         }
 
     }
+    public function infiniteScroll(Request $request){
+        $page = $request->input('page');
+        $c_id = $request->input('c_id');
+        if ($c_id == -1){
+            $inficon = DB::table('contents')->select('id','title','image')->orderby('id','desc')->paginate(12);
+        } else {
+            $inficon = DB::table('contents')->select('id','title','image')->where('category_id','=',$c_id)->orderby('id','desc')->paginate(12);
+        }
+        $resultArr = array('page'=>$page,'inficon'=>$inficon);
+        return $resultArr;
+    }
     public function count(Request $request){
         $m_id = $request->input("m_id");
         $dbResult = Content::find($m_id);
