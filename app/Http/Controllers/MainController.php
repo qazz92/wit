@@ -20,11 +20,15 @@ use Debugbar;
 class MainController extends Controller
 {
 
-    public function index(){
-        Debugbar::info("index다요!");
+    public function index(Request $request){
         $agent = new Agent();
-        $contents = DB::table('contents')->select('id','title','image')->orderby('id','desc')->get();
-//        print_r($contents);
+        $c_id = $request->input('c_id');
+        Log::info("id : ".$c_id);
+        if ($c_id == null){
+            $contents = DB::table('contents')->select('id','title','image')->orderby('id','desc')->get();
+        } else {
+            $contents = DB::table('contents')->select('id','title','image')->where('category_id','=',$c_id)->orderby('id','desc')->get();
+        }
         $bests = DB::table('contents')->select('id','title')->orderby('count','desc')->limit(5)->get();
         if ( $agent->isMobile() ) {
             return view('home');

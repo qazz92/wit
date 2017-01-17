@@ -25,7 +25,7 @@
                     <tr>
                         <td>
                             <form enctype="multipart/form-data" id="upload_form" role="form" method="POST">
-                            <div class="profile-image"><img id="thumbnail" src="{{'http://localhost:8000/'.$user[0]->th}}"></div>
+                            <div class="profile-image"><img id="thumbnail" src="{{url('/').'/'.$user[0]->th}}"></div>
                             <input type="file" id="inputTh" name="inputTh" accept="image/*">
                             </form>
                         </td>
