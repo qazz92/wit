@@ -1,0 +1,79 @@
+.prof{
+    display: inline-block;
+}
+.pro-wid{
+    width: 300px;
+}
+.prof-nick{
+    position: inherit;
+}
+.profile-image{
+    width: 122px;
+    height: 122px;
+    border: 1px solid #ccc;
+}
+.prof-update{
+    display: none;
+    margin-top: 5%;
+}
+.h4{
+    color: #e47e73;
+}
+.update-span{
+    display: block;
+    font-size: 17px;
+    color:#6E6E6E;
+    margin-bottom: 0.3%;
+}
+.email-input{
+    border: 1px solid #ccc;
+    width: 300px;
+    margin-bottom: 1.8%;
+}
+.nick-input{
+    border: 1px solid #ccc;
+    width: 200px;
+}
+.pw-input{
+    border: 1px solid #ccc;
+    width: 300px;
+    margin-bottom: 1.8%;
+}
+.up-bt{
+    display: block;
+    width: 20%;
+    background-color: #e47e73;
+    color: #fff;
+    margin:3% auto;
+}
+.up-bt:hover{
+    font-weight: 600;
+    color: #884b45;
+}
+.update-button{
+    width: 40%;
+    margin: auto;
+}
+.up-can{
+    width: 47.5%;
+    color:#e47e73;
+    font-weight: 600;
+    margin-right: 2%;
+}
+.up-can:hover{
+    font-weight: 600;
+    color: #884b45;
+}
+.up-can:focus{
+    font-weight: 600;
+    color: #884b45;
+}
+.up-ok{
+    width: 47.5%;
+    background-color: #e47e73;
+    color: #fff;
+}
+.up-ok:hover{
+    font-weight: 600;
+    color: #884b45;
+}

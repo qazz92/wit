@@ -32,7 +32,7 @@ class MainController extends Controller
         }
         $bests = DB::table('contents')->select('id','title')->orderby('count','desc')->limit(5)->get();
         if ( $agent->isMobile() ) {
-            return view('home');
+            return view('main.m_main')->with('contents',$contents)->with('c_id',$c_id);
         } else {
             return view('main.main')->with('contents',$contents)->with('bests',$bests)->with('c_id',$c_id);
         }
@@ -57,6 +57,7 @@ class MainController extends Controller
         echo "ok";
     }
     public function main_modal($id){
+        $agent = new Agent();
         $main_modal = DB::table('contents')
             ->select('id','title','context','updated_at')
             ->where('id','=',$id)
@@ -68,7 +69,11 @@ class MainController extends Controller
             ->where('reply.contents_id','=',$id)
             ->orderby('reply.updated_at','desc')
             ->get();
-        return view('main.main_modal')->with('cts_m',$main_modal)->with('replys',$reply)->with('m_id',$id);
+        if ( $agent->isMobile() ) {
+            return view('main.m_modal')->with('cts_m',$main_modal)->with('replys',$reply)->with('m_id',$id);
+        } else {
+            return view('main.main_modal')->with('cts_m',$main_modal)->with('replys',$reply)->with('m_id',$id);
+        }
     }
     public function side_modal($id){
         $side_modal = DB::table('contents')->leftJoin('thumb','contents.user_id','=','thumb.user_id')
@@ -83,12 +88,17 @@ class MainController extends Controller
 //        print_r($side_modal);
     }
     public function mypage() {
+        $agent = new Agent();
         $user = DB::table('users')
             ->leftJoin('thumb', 'users.id', '=', 'thumb.user_id')
             ->select('users.email as email','users.name as name','thumb.thumbnail as th')
             ->where('thumb.user_id','=',Auth::user()["id"])
             ->get();
-        return view('main.mypage')->with('user',$user);
+        if ( $agent->isMobile() ) {
+            return view('main.m_mypage')->with('user',$user);
+        } else {
+            return view('main.mypage')->with('user',$user);
+        }
     }
     public function pwch(Request $request){
         $cupw = $request->input('cupw');

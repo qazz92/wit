@@ -1,0 +1,294 @@
+.modal-dialog {
+    margin: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.modal_div1{
+    width: 100%;
+    height: 100%;
+}
+.col-padding {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.magazine_image {
+    width: 100%;
+    height: 150px !important;
+}
+
+.magazine_span_div {
+    padding: 6% 0;
+    text-align: center;
+    height: 65px;
+}
+
+.m-header {
+    text-align: center;
+}
+
+.review_span_bottom {
+    padding-bottom: 10px;
+}
+
+.radio {
+    float: right;
+    padding-bottom: 2%;
+}
+
+.modal_like {
+    margin-bottom: 5%;
+}
+
+.radio_img {
+    width: 15px;
+    height: 15px;
+}
+
+.btn_select {
+    margin-bottom: 3%;
+    border: 1px solid #ccc;
+}
+
+.modal_like_a_dis {
+    display: none;
+}
+
+.modal_space {
+    margin-right: 5%;
+}
+
+.review_like {
+    float: right;
+    font-size: 12px;
+}
+
+#review_zz {
+    font-size: 14px;
+    cursor: default;
+    margin-right: 3%;
+    color: #ff0083;
+}
+
+#review_like {
+    margin-right: 3%;
+    color: #ef6e6e;
+    cursor: pointer;
+}
+
+#review_dislike {
+    color: #8675f4;
+    cursor: pointer;
+    display: none;
+}
+
+.right_background {
+    background-color: #595959;
+}
+
+.modal-content {
+    background-color: white;
+    min-height: 100%;
+    height: 100%;
+    overflow:hidden;
+}
+
+.modal_dat {
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    margin-left: 10px;
+    background-color: white;
+}
+
+.modal_btngroup {
+    margin-bottom: 3%;
+    text-align: right;
+}
+
+#modal_select1:hover {
+    color: white;
+    background-color: blue;
+}
+
+#modal_select2:hover {
+    color: white;
+    background-color: grey;
+}
+
+#modal_select3:hover {
+    color: white;
+    background-color: red;
+}
+
+.radio {
+    margin-top: 0;
+}
+
+#myModalLabel {
+    color: #595959;
+    font-weight: 600
+}
+
+#test_time {
+    color: lightgray;
+    font-size: 12px;
+    /*margin-top: 7%;*/
+    margin-bottom: -2%;
+}
+
+#test_start {
+    margin-top: 24%;
+}
+
+.test_div {
+    margin-bottom: 27%;
+}
+
+.test_p {
+    font-size: 17px;
+    margin-top: 10%;
+}
+
+.test_color {
+    color: #f14848;
+}
+
+.modal_like {
+    text-align: center;
+}
+
+.modal_like_a {
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    color: black;
+}
+
+.modal_like_a:hover {
+    text-decoration: none;
+    background-color: #e47e73;
+    color: white;
+    border: none;
+    border: 1px solid #e47e73;
+    cursor: pointer;
+}
+
+.modal_like_a_dis {
+    background-color: #e47e73;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border: 1px solid #e47e73;
+    padding: 10px 15px;
+}
+
+.modal_like_a_dis:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #e47e73;
+    border: 1px solid #e47e73;
+}
+
+.m_magazine_review {
+    background-color: #e4e4e4;
+    padding: 3% 9%;
+}
+
+.magazine_review1 {
+    padding: 0 9% 3% 9%;
+}
+
+.review_padding {
+    padding: 0;
+}
+
+#review_padding {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+}
+
+#review_area {
+    border: 0;
+    width: 100%;
+    height: 90px;
+    padding: 0;
+    background-color: white;
+}
+
+.review_bt_style {
+    border: 0;
+    width: 50px;
+    height: 90px;
+    background-color: #617df6;
+    color: white;
+}
+
+.magazine_review1 {
+    padding: 0 9% 3% 9%;
+}
+
+.row_line {
+    padding: 3% 0;
+    border-bottom: 1px solid lightgray;
+}
+
+.users {
+    border-radius: 70px;
+    -moz-border-radius: 70px;
+    -khtml-border-radius: 70px;
+    -webkit-border-radius: 70px;
+}
+
+.review_nik {
+    color: #595959;
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+
+.review_con {
+    font-size: 12px;
+}
+
+.review_time {
+    color: lightgray;
+    font-size: 12px;
+}
+
+.close {
+    color: white;
+    background-color: white;
+}
+
+.div2_header {
+    padding-top: 30%;
+    padding-bottom: 15%;
+}
+
+.test_pp {
+    width: 50px;
+    margin: 5% auto 0 auto;
+}
+
+.test_pp1 {
+    width: 62px;
+    margin: auto;
+}
+
+.test_pp {
+    width: 50px;
+    margin: 5% auto 0 auto;
+}
+
+.test_pp1 {
+    width: 62px;
+    margin: auto;
+}
+
+#modal_div3 {
+    margin: 4%;
+    color: lightgray;
+}
+

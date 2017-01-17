@@ -1,0 +1,340 @@
+/* 768이상 */
+
+@media(min-width:768px) {
+    .col-fix {
+        width: 180px;
+        position: fixed;
+    }
+}
+
+
+/* 992이상 */
+
+@media(min-width:992px) {
+    .col-fix {
+        width: 230px;
+        position: fixed;
+    }
+}
+
+
+/* 1200이상 */
+
+@media(min-width:1200px) {
+    .col-fix {
+        width: 280px;
+        position: fixed;
+    }
+}
+
+html,
+body {
+    height: 100%;
+}
+
+a {
+    cursor: pointer;
+}
+
+a:hover, a:focus {
+    text-decoration: none !important;
+}
+
+input:focus {
+    outline: 0 !important;
+}
+
+button:focus {
+    outline: 0 !important;
+}
+
+.open {
+    font-size: 29px;
+    cursor: pointer;
+    float: left;
+    margin-top: 3px;
+    color: #884b45;
+}
+
+#logo {
+    display: block;
+    width: 150px;
+    margin: 5px auto;
+}
+
+.glass {
+    margin-top: 8px;
+    float: right;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.differ {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #e47e73;
+    font-weight: 600;
+    display: block;
+    transition: 0.3s
+}
+
+.differ:hover,
+.differ:focus {
+    color: #884b45;
+}
+
+.differ-a,
+.closebtn {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #585858;
+    font-weight: 600;
+    display: block;
+    transition: 0.3s
+}
+
+.differ-a:hover,
+differ-a:focus,
+.closebtn:hover,
+.closebtn:focus {
+    color: #e47e73;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.active {
+    color: #e47e73;
+}
+.activei {
+    color: #884b45;
+}
+
+#glass-bt {
+    float: right;
+    width: 24px;
+    margin-top: 4px;
+}
+
+.find-div {
+    display: none;
+    padding: 5px;
+    background-color: white;
+    border: 2px solid #e47e73;
+    height: 30px;
+    margin: 10px;
+}
+
+.find-input {
+    border: none;
+    width: 80%;
+    height: 20px;
+    outline: none;
+}
+
+#glass {
+    float: right;
+    width: 20px;
+}
+
+.text-right {
+    float: right;
+    margin-top: 16px;
+}
+
+.login-a {
+    color: white;
+    font-weight: 600;
+}
+
+.login-a:hover {
+    color: #884b45;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 0;
+}
+
+.container-fluid {
+    border: 0;
+    background-color: #e47e73;
+    padding: 3px 0;
+}
+
+.today {
+    height: 270px;
+    width: 100%;
+}
+
+#nav {
+    z-index: 1;
+}
+
+.nav {
+    padding-top: 5%;
+}
+
+.nav>li {
+    width: 100%;
+    margin-right: 1.5%;
+}
+
+.nav>li>a {
+    font-size: 15px;
+    color: #585858;
+    font-weight: 600;
+    padding: 10px 7%;
+}
+
+.nav>li>a:hover {
+    background-color: white;
+    color: #e47e73;
+    text-decoration: none !important;
+}
+
+.nav>li>a:focus {
+    background-color: white;
+    color: #e47e73;
+    text-decoration: none !important;
+}
+
+.nav>.active>a {
+    color: #e47e73;
+    text-decoration: none !important;
+}
+
+.nav-find {
+    display: inline-block;
+    margin-top: 6px;
+    width: 50%;
+}
+
+.best {
+    padding: 2% 7%;
+}
+
+.best-h3 {
+    font-weight: 700;
+    color: #e47e73;
+}
+
+.best-hr {
+    margin-top: 4%;
+    margin-bottom: 7%;
+    border: 1px solid #e47e73;
+}
+
+.best-number {
+    color: #e47e73;
+    font-size: 17px;
+    font-weight: 600;
+    margin-right: 1%;
+}
+
+.best- {
+    cursor: pointer;
+    color: #848484;
+    font-size: 13px
+}
+
+.con-sec {
+    height: 100%;
+    margin-top: 90px;
+    margin-bottom: 5%;
+}
+
+.card {
+    margin-bottom: 15%;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.view {
+    overflow: hidden;
+    position: relative;
+    cursor: default;
+}
+
+.overlay img {
+    transition: all 0.2s linear;
+}
+
+.view img {
+    display: block;
+    position: relative;
+}
+
+.card img {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.hm-white-slight .mask {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.overlay .mask {
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.overlay:hover .mask {
+    opacity: 1;
+}
+
+.view .mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #585858;
+}
+
+.footer>.container>ul {
+    margin-bottom: 0;
+    padding: 0.5%;
+}
+
+.footer>.container>ul>li {
+    display: inline-block;
+    margin-right: 1.5%;
+    color: #A4A4A4;
+    font-size: 13px;
+}
+
+.footer>.container>ul>li>a {
+    color: #A4A4A4;
+    font-size: 13px;
+}
